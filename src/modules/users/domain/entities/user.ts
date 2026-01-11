@@ -7,8 +7,6 @@ export class User {
         public passwordHash: string,
         public role: UserRole,
         public isActive: boolean,
-        public createdAt: Date,
-        public updatedAt: Date
     ) {}
 
     deactivate() {

@@ -10,6 +10,7 @@ import { GetIpMiddleware } from './core/middlewares/get-ip..middleware';
 import { AuthModule } from './modules/auth/auth.module';
 import { UsersModule } from './modules/users/users.module';
 import { TypeOrmCustomModule } from './shared/typeorm.module';
+import { CatalogModule } from './modules/catalog/catalog.module';
 
 @Module({
   imports: [
@@ -20,7 +21,8 @@ import { TypeOrmCustomModule } from './shared/typeorm.module';
     TypeOrmCustomModule,
     RedisModule,
     AuthModule,
-    UsersModule
+    UsersModule,
+    CatalogModule
   ],
   controllers: [AppController],
   providers: [AppService],
