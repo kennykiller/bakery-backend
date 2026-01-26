@@ -1,1 +1,1 @@
-export const USERS_REPO_API = Symbol('USERS_REPO_API')
+export const USERS_REPO_API = Symbol('USERS_REPO_API');

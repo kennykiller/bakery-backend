@@ -1,1 +1,1 @@
-export const CACHE_STORE = Symbol('CACHE_STORE')
+export const CACHE_STORE = Symbol('CACHE_STORE');

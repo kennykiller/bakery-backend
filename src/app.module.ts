@@ -16,19 +16,19 @@ import { CatalogModule } from './modules/catalog/catalog.module';
   imports: [
     ConfigModule.forRoot({
       isGlobal: true,
-      load: [clickhouseConfig, postgresConfig, redisConfig]
+      load: [clickhouseConfig, postgresConfig, redisConfig],
     }),
     TypeOrmCustomModule,
     RedisModule,
     AuthModule,
     UsersModule,
-    CatalogModule
+    CatalogModule,
   ],
   controllers: [AppController],
   providers: [AppService],
 })
 export class AppModule implements NestModule {
   configure(consumer: MiddlewareConsumer) {
-    consumer.apply(GetIpMiddleware).forRoutes('*')
+    consumer.apply(GetIpMiddleware).forRoutes('*');
   }
 }

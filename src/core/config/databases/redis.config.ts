@@ -1,7 +1,7 @@
 import ev from 'env-var';
 import { registerAs } from '@nestjs/config';
 
-const REDIS_TOKEN = Symbol('redis')
+const REDIS_TOKEN = Symbol('redis');
 
 export interface IRedisConfig {
   host: string;

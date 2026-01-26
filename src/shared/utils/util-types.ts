@@ -1,1 +1,1 @@
-export type RequiredExcept<T, K extends keyof T> = Partial<T> & Required<Pick<T, K>>
+export type RequiredExcept<T, K extends keyof T> = Partial<T> & Required<Pick<T, K>>;

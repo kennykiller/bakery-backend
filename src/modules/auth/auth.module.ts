@@ -7,7 +7,6 @@ import { LoginHandler } from './application/handlers/login.handler';
 import { UsersModule } from '../users/users.module';
 import { ConfigModule, ConfigService } from '@nestjs/config';
 
-
 @Module({
   imports: [
     CqrsModule,
@@ -17,9 +16,9 @@ import { ConfigModule, ConfigService } from '@nestjs/config';
       useFactory: (config: ConfigService) => ({
         secret: config.get<string>('JWT_SECRET'),
         signOptions: { expiresIn: '15m' },
-      })
+      }),
     }),
-    UsersModule
+    UsersModule,
   ],
   controllers: [AuthController],
   providers: [RegisterHandler, LoginHandler],

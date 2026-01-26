@@ -19,8 +19,7 @@ export class AuthController {
   login(@Body() dto: LoginDto, @Req() request: IRequest) {
     console.log(request.clientId, 'client id');
     console.log(dto, 'dto');
-    
-    
+
     return this.commandBus.execute(new LoginCommand(dto.email, dto.password, request.clientId));
   }
 }

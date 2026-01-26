@@ -9,12 +9,12 @@ import { type UserRepository } from 'src/modules/users/domain/repositories/user.
 export class RegisterHandler implements ICommandHandler<RegisterCommand> {
   constructor(
     @Inject(USERS_REPO_API)
-    private readonly usersApi: UserRepository
+    private readonly usersApi: UserRepository,
   ) {}
 
   async execute(cmd: RegisterCommand) {
     console.log(cmd, 'command');
-    
+
     const exists = await this.usersApi.findByEmail(cmd.email);
     if (exists) {
       throw new BadRequestException('User already exists');

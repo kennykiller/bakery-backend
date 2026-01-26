@@ -1,36 +1,29 @@
-import {
-  Entity,
-  PrimaryGeneratedColumn,
-  Column,
-  Index,
-  CreateDateColumn,
-  UpdateDateColumn,
-} from 'typeorm'
+import { Entity, PrimaryGeneratedColumn, Column, Index, CreateDateColumn, UpdateDateColumn } from 'typeorm';
 
 export const USER_ROLES = {
   CUSTOMER: 'customer',
   ADMIN: 'admin',
 } as const;
 
-export type UserRole = typeof USER_ROLES[keyof typeof USER_ROLES];
+export type UserRole = (typeof USER_ROLES)[keyof typeof USER_ROLES];
 
 @Entity('users')
 @Index(['email'], { unique: true })
 export class UserOrmEntity {
   @PrimaryGeneratedColumn('uuid')
-  id?: string
+  id?: string;
 
   @Column({ type: 'varchar', length: 255 })
-  email: string
+  email: string;
 
   @Column({ name: 'password_hash', type: 'text' })
-  passwordHash: string
+  passwordHash: string;
 
   @Column({ name: 'full_name', type: 'varchar', length: 255, nullable: true })
-  fullName?: string
+  fullName?: string;
 
   @Column({ type: 'varchar', length: 32, nullable: true })
-  phone?: string
+  phone?: string;
 
   @Column({
     type: 'enum',
@@ -38,14 +31,14 @@ export class UserOrmEntity {
     enum: Object.values(USER_ROLES),
     default: USER_ROLES.CUSTOMER,
   })
-  role?: UserRole
+  role?: UserRole;
 
   @Column({ name: 'is_active', type: 'boolean', default: true })
-  isActive?: boolean
+  isActive?: boolean;
 
   @CreateDateColumn({ name: 'created_at', type: 'timestamptz' })
-  createdAt?: Date
+  createdAt?: Date;
 
   @UpdateDateColumn({ name: 'updated_at', type: 'timestamptz' })
-  updatedAt?: Date
+  updatedAt?: Date;
 }
