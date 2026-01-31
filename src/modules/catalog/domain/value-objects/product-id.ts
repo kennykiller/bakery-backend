@@ -9,4 +9,8 @@ export class ProductId {
   toString() {
     return this.value;
   }
+
+  equals(other: ProductId): boolean {
+    return this.value === other.value;
+  }
 }
